@@ -1,0 +1,35 @@
+import java.io.*;
+import java.util.*;
+
+public class Main{
+
+public static void main(String[] args) throws Exception {
+    // write your code here
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    int []arr = new int[n];
+    for(int i=0;i<n;i++){
+        arr[i] = sc.nextInt();
+    }
+    Barchart(arr);
+ }
+ public static void Barchart(int []arr){
+     int maxi = 0;
+     for(int i=0;i<arr.length;i++){
+         if(arr[i]>maxi)maxi = arr[i];
+     }
+
+    for(int hei = maxi;hei>=1;hei--){
+        for(int j=0;j<arr.length;j++){
+            if(arr[j]>=hei){
+                System.out.print("*\t");
+            }else{
+                System.out.print("\t");
+            }
+        }
+        System.out.println();
+    }
+
+ }
+
+}

@@ -1,0 +1,39 @@
+import java.util.*;
+
+public class Main{
+    public static void main(String []args){
+        Scanner sc = new Scanner(System.in);
+        int base = sc.nextInt();
+        int n1 = sc.nextInt();
+        int n2 = sc.nextInt();
+
+        int res = baseEdition(base,n1,n2);
+        System.out.println(res);
+    }
+
+    public static int baseEdition(int base,int n1,int n2){
+        int res = 0;
+        int tp = 1;  // 10^0
+        int c =0; //carry initially 0
+        while(n1>0 || n2>0|| c>0){
+            int d = c;
+
+            //checkign the if n1 becomes 0
+            if(n1>0){
+                d = d+n1%10;
+                n1 = n1/10;
+            }
+            if(n2>0){
+                d = d+n2%10;
+                n2=n2/10;
+            }
+            c = d/base;
+            d = d%base;
+
+            res = res+ tp*d;
+            tp = tp*10;
+        }
+        return res;
+    }
+
+}

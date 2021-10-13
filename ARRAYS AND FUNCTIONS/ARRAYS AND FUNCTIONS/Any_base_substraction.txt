@@ -1,0 +1,46 @@
+import java.util.*;
+
+public class Main{
+    public static void main(String []args){
+        Scanner sc = new Scanner(System.in);
+        int base = sc.nextInt();
+        int n1 = sc.nextInt();
+        int n2 = sc.nextInt();
+
+        int res = Substraction(base,n1,n2);
+        System.out.println(res);
+    }
+
+    public static int Substraction(int base,int n1,int n2){
+        int res = 0;
+
+        int c = 0;
+        int tp= 1;
+        // given assumption n2> n1 
+
+        while(n2>0){
+            //extracted the last digit from second number
+            int d1 = n2%10;
+            n2 = n2/10;
+
+            int d  =d1-c;
+            if(n1>0){
+                d = d-n1%10;
+                n1 = n1/10;
+            }
+
+            if(d<0){
+                c =1;
+                d = d+base;
+            }else{
+                c =0;
+            }
+        res = res + tp*d;
+        tp = tp*10;
+        }
+        return res;
+
+        
+    }
+
+}

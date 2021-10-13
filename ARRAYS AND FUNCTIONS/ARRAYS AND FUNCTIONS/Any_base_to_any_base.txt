@@ -1,0 +1,39 @@
+import java.util.*;
+
+public class Main{
+    public static void main(String []args){
+        Scanner sc  = new Scanner(System.in);
+        int n = sc.nextInt();
+        int b1 = sc.nextInt();
+        int b2 = sc.nextInt();
+        int base_to_decimal = getIntoDecimal(n,b1);
+        int deci_to_base = getInBase(base_to_decimal,b2);
+        System.out.println(deci_to_base);
+    }
+    public static int getInBase(int n,int base){
+        int tp = 1;
+        int res = 0;
+        while(n>0){
+            //taking the digit
+            int d = n%base;
+            n = n/base;
+
+            res = res+tp*d;
+            tp = tp*10;
+        }
+        return res;
+    }
+    public static int getIntoDecimal(int num,int base){
+        int tp = 1;
+        int res = 0;
+
+        while(num>0){
+            int dig = num%10;
+            num = num/10;
+
+            res = res + tp*dig;
+            tp = tp*base;
+        }
+        return res;
+    }
+}

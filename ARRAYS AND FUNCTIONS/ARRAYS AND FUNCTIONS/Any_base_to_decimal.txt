@@ -1,0 +1,25 @@
+import java.util.*;
+public class Main{
+    public static void main(String [] args){
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        int base = sc.nextInt();
+
+        int deci = getIntoDecimal(num,base);
+        System.out.println(deci);
+    }
+
+    public static int getIntoDecimal(int num,int base){
+        int tp = 1;
+        int res = 0;
+
+        while(num>0){
+            int dig = num%10;
+            num = num/10;
+
+            res = res + tp*dig;
+            tp = tp*base;
+        }
+        return res;
+    }
+}
